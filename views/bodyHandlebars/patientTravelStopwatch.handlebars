@@ -1,0 +1,44 @@
+		<p>Now, if your patient requires careful, gentle travel, then the commute time will be increased between locations based on your average speed with the patient in the car. To take that into account, We advise you record the commute time with your patient each trip between two select locations (preferrably between home and patient's address), and then we will calculate the average travel time each trip. <strong>When a minimum of three trips is entered here,</strong> we can then work the average travel time into your schedule and better calcuate the most convenient times you can dedicate to patient care. Enter as many routes as you like, but keep in mind you need to make sure you travel those routes at least three times for us to estimate an average commute time, and even more times to make good use of the estimated time.</p>
+
+		<h4>Starting location</h4>
+		<form action = "./../server.js" name = "workAddress">
+			<input name = "address1" placeholder = "Address Line 1">
+			<input name = "address2" placeholder = "Address Line 2">
+			<input name = "city" placeholder = "City">
+			<input name = "state" placeholder = "State">
+			<input name = "country" placeholder = "Country">
+			<input name = "zip" placeholder = "Zip Code (5-digit only)">
+		</form>
+		<h4>Destination</h4>
+		<form action = "./../server.js" name = "workAddress">
+			<input name = "address1" placeholder = "Address Line 1">
+			<input name = "address2" placeholder = "Address Line 2">
+			<input name = "city" placeholder = "City">
+			<input name = "state" placeholder = "State">
+			<input name = "country" placeholder = "Country">
+			<input name = "zip" placeholder = "Zip Code (5-digit only)">
+		</form>
+		<h4>Push the "start" button when you start your car, <em> only when your patient is a passenger</em>. Then push the "stop" button when you turn the engine off.</h4>
+
+		<button action = "./../server.js">START</button>
+		<span action = "./../server.js">(Insert JS timer here. Obviously the JS sheet will operate it.)</span>
+		<h3>Recording now! Push "STOP" when you turn your car's engine off.</h3>
+		<button action = "./../server.js">STOP</button>
+
+		<!--This is HTML which will probably be moved to a JS page as innerHTML. Just to clarify the intended layout of the page, we will put the data here for now-->
+		<p>Okay! This trip lasted (insert elapsed minutes here) minutes and (insert elapsed seconds + miliseconds here) seconds.</p>
+		<div>
+			<h3>Saved travel times</h3>
+			<table>
+				<head>
+					<th>Recorded times (date and time of day)</th>	
+				</head>
+				<body>
+					<tr>Travel time</tr>
+					<td></td>
+				</body>
+			</table>
+			<p>To delete a recorded entry, click the column header with the date and time, then click the big red button below.</p>
+			<button>DELETE COLUMN</button>
+			<h3>Average travel time with patient: <div>(Insert calculated average here)</div></h3>
+		</div>

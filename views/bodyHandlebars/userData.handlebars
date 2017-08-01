@@ -1,0 +1,117 @@
+<!--This is where the user will enter daily schedule and enter a budget reserved for first-aid patient care (not counting hospital bills... pay your own damn bill, patient!).-->
+<div class = "row">
+	<div class = "col s12">
+		<h2>What is your current budget?</h2>
+		<p>The following form is where you can enter your spending limits and your current time commitments so that we can find the most feasible times for you to commit to your patient's recovery and to suggest ways to save and spend your money reserve carefully. 
+	</div>
+</div>
+<!--This will be the form of the work schedule-->
+<div class = "row">
+	<div class = "col s12">
+		<form action = "./../server.js" >
+
+			<!--These won't be input spaces when app is finished. Make them checkmark options-->
+			<input name = "Monday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Tuesday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Wednesday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Thursday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Friday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Saturday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Sunday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+
+				<!--This will be the entry which user will use to record patient care budget. Just an integer w/ 2 decimal places in US dollars.-->
+			<input name = "maximumBudget" placeholder = "Reserve an amount of money for patient care. What's the largest feasible budget for you?"
+		</form>
+
+		<!--This is where user enters his/her own home and school/work address so that app can calculate commute distance/time between home/work and patient's house/hospital-->
+		<form action = "./../server.js" name = "homeAddress">
+			<input name = "address1" placeholder = "Address Line 1">
+			<input name = "address2" placeholder = "Address Line 2">
+			<input name = "city" placeholder = "City">
+			<input name = "state" placeholder = "State">
+			<input name = "country" placeholder = "Country">
+			<input name = "zip" placeholder = "Zip Code (5-digit only)">
+		</form>
+
+		<!--Perhaps we'll want to automatically let country name of work and patient match that on the home address. I can't imagine user being of much help to patient if he/she lives needs to get through customs w/ a passport every day.-->
+		<form action = "./../server.js" name = "workAddress">
+			<input name = "address1" placeholder = "Address Line 1">
+			<input name = "address2" placeholder = "Address Line 2">
+			<input name = "city" placeholder = "City">
+			<input name = "state" placeholder = "State">
+			<input name = "country" placeholder = "Country">
+			<input name = "zip" placeholder = "Zip Code (5-digit only)">
+		</form>
+
+		<form action = "./../server.js" name = "patientAddress">
+			<input name = "address1" placeholder = "Address Line 1">
+			<input name = "address2" placeholder = "Address Line 2">
+			<input name = "city" placeholder = "City">
+			<input name = "state" placeholder = "State">
+			<input name = "country" placeholder = "Country">
+			<input name = "zip" placeholder = "Zip Code (5-digit only)">
+		</form>
+		<h3>Contacts</h3>
+		<h4>You might want to record the contact information of people you will want to reach quickly and easily. Try not to deal with your patient's medical emergencies alone. You can contact hospitals, friends/relatives ready to help, local pharmacies, etc. 
+		<!--This is where user can enter important contacts-->
+		<form action = "./../server.js">
+			<input name = "name" placeholder = "Name">
+			<input name = "phone" placeholder = "Phone Number">
+			<input name = "fax" placeholder = "Fax Number">
+			<input name = "location" placeholder = "Address">
+			<input name = "email" placeholder = "Email">
+
+		<!--Make sure to include a feature that user can use to prioritize contacts.-->
+
+		</form>
+
+		<!--This is where medicine and supplies can be measured according to initial amount and regular dosage/administration-->
+		<form>
+			<h4>Enter all your medical supply information here. When it runs short (5 days' worth and under) We will post an alert to you on the Reminder Alert page.</h4>
+
+			<!--This first input is multiple choice-->
+			<input name = "type" class = "what-type">Medicine, food (according to patient's special diet. This will be automatically added to the MealPlans DB, but we're clustering special diet needs with medical needs to emphasize importance of proper, regular intake.), disposable tool (bandages, etc)</input>
+			<input name = "item">
+			<input name = "startingCapacity">
+			<input name = "dosage" placeholder = "dosage (amount/day)">
+
+			<!--This is where medicines and dosages will be recorded for the reminder alert page to remind patient when to take medicine. Specified time and days are recommended, but not required. -->
+			<input name = "scheduledReminder" placeholder = "Reminder Times (optional)">
+		</form>
+
+		<!--This is where user enters recovery exercise schedule for patient to practice-->
+		<form action = "./../server.js">
+			<input name = "exercise">
+			<input name = "timeRate">
+
+			<!--This would be a good chance to utilize the timer feature of Javascript-->
+			<input name = "timeLength">
+
+			<!--This will describe what the exercises are and how many repetition must be performed during each exercise period.-->
+			<input name = "description">
+
+		</form>
+	</div>
+</div>
+
