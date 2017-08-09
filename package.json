@@ -1,0 +1,25 @@
+{
+  "name": "thefinalproject",
+  "version": "1.0.0",
+  "description": "A demonstration of my understanding of the class essentials and what practical uses I have for those essentials. Keep the app operational and polished. Potential employers might try this app out.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BooBooChan/The-Final-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BooBooChan/The-Final-Project/issues"
+  },
+  "homepage": "https://github.com/BooBooChan/The-Final-Project#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.11.6"
+  }
+}
