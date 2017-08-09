@@ -1,10 +1,10 @@
-//Creating ShoppingList schema
+//Creating SupplyList schema
 var Schema = mongoose.Schema({
 	//establishing a property for each ShoppingList Schema created.
 	name: String //So all ShoppingList schemas will be labelled by a string.
 
 });
-var Shopping = new Schema({
+var Supply = new Schema({
 	eachItem:{
 		item:{
 			type:String,
@@ -14,7 +14,7 @@ var Shopping = new Schema({
 			type:Number,
 			default:""
 		},
-		price:{
+		dosage:{
 			type:Number,
 			default:"$" + this.type
 			//Multiply item quantity by price to find total cost of each list item. 
