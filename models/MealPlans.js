@@ -4,7 +4,7 @@ var Schema = mongoose.Schema({
 	name: String //So all Contact schemas will be labelled by a string.
 
 });
-var MealPlan = new Schema({
+var MealPlanSchema = new Schema({
 	day:{
 		type:String,
 		default:""
@@ -61,6 +61,11 @@ var MealPlan = new Schema({
 		}
 		default:""		
 	}
+});
+var MealPlan = mongoose.model("MealPlan", MealPlan);
+
+var demo = new MealPlan({
+	
 });
 //Exporting meal plans database to server.js
 module.exports = MealPlan;

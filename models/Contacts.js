@@ -83,16 +83,16 @@
 		location:{
 				address1:"42 Wallaby Way", 
 				city:"Sydney", 
-				country:"Australia"}
+				country:"Australia"},
 		phone:{countryCode: 1,
 			areaCode:842,
 			mainNumber:8228637},
 		fax:{
 			countryCode: 1,
 			areaCode:642,
-			mainNumber:6226673}
+			mainNumber:6226673},
 		email:{
-			username:"demon"
+			username:"demo"
 			domain:"demonstration.de"
 		}
 	});

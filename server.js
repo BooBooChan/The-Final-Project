@@ -2,12 +2,12 @@
 //using express, handlebars, mongo(ose), probably not php, because then you would need to use TDDs and perhaps Composer. Don't kill yourself here. 
 var express = require("express");
 var handlebar = require("express-handlebars");
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 var app = express();
 var port = 7000;
 
 // //Connecting to MongoDB
-// mongoose.connect("mongodb://localhost/my_database");
+// mongoose.connect("mongodb://localhost:7000/Login");
 // //Checking for errors when server is run
 // var db = mongoose.connection;//.connection: NOT to be confused with .connect()
 // db.on("error", console.error.bind(console, "we detected a connection error:"));
@@ -16,14 +16,14 @@ var port = 7000;
 
 // 	//All remaining Mongoose callbacks are written inside these once() function parameter brackets.
 // 	var Login = require("./models/Login.js");
-// 	var SupplyQuantity = require("./models/SupplyQuantity.js");
-// 	var ShoppingList = require ("./models/ShoppingList.js");
-// 	var MealPlans = require("./models/MealPlans.js");
-// 	var Contacts = require("./models/Contacts.js");
-// 	var WeeklySchedule = require("./models/WeeklySchedule.js");
-// 	//var TravelRoutes = require("./models/SmoothTravelRoutes.js");
-// 	var Demo = require("./models/Demo.js");
-// };
+// // 	var SupplyQuantity = require("./models/SupplyQuantity.js");
+// // 	var ShoppingList = require ("./models/ShoppingList.js");
+// // 	var MealPlans = require("./models/MealPlans.js");
+// // 	var Contacts = require("./models/Contacts.js");
+// // 	var WeeklySchedule = require("./models/WeeklySchedule.js");
+// // 	//var TravelRoutes = require("./models/SmoothTravelRoutes.js");
+// // 	var Demo = require("./models/Demo.js");
+// });
 
 	
 //Establishing handlebars layout
@@ -35,18 +35,28 @@ app.set("view engine", "handlebars");
 
 //Routing the home page
 app.get("/", function(req, res){
-	//Rendering the home handlebar page onto the home url page
+	// Rendering the home handlebar page onto the home url page
 	res.render("home");
-});
-// //Posting user-entered data from the home page onto the server.
-// app.post("/", function(req, res){
+	// Login.find({}, function(error, welcome){
+	// 	if(error){
+	// 		res.send(error);
+	// 	} else{
+	// 		Login.findOne({""})
 
-// });
-// //Retrieving and storing all login users' signup information
-// app.get("/:user", function(req, res){//If the "?" of optional parameters is entered, then the server would get confused which app.get() command to run when two are "get"ting server data from possibly the same url "/".
-// 	//Sending data from server as per user's request in url to browser.
-// 	res.send("/" + req.params.user);
-// });
+	// 		};
+	// 	}
+	// })
+});
+//Posting user-entered data from the home page onto the server.
+app.post("/", function(req, res){
+
+
+});
+//Retrieving and storing all login users' signup information
+app.get("/:user", function(req, res){//If the "?" of optional parameters is entered, then the server would get confused which app.get() command to run when two are "get"ting server data from possibly the same url "/".
+	//Sending data from server as per user's request in url to browser.
+	res.send("/" + req.params.user);
+});
 // //Retrieving data from the server on the user input page
 // app.get("/userData", function (req, res){
 // 	//Rendering the userData handlebar page onto the userDATA url page
@@ -111,6 +121,5 @@ app.get("/", function(req, res){
 // Remembering to make node.js Listen for http requests
 
 app.listen(7000, function() {
-    console.log('App is listening on localhost', app.get('port'));
-
+    console.log('App is listening on localhost', 7000);
 });

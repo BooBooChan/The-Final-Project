@@ -2,3 +2,54 @@
 		<p>Based on all the information you entered in the User Input Page, below is a schedule of your work and other commitments throughout the week. The empty spaces are slots where we thought you might have the spare time to dedicate to all your patient's needs (or else just take things easy for a while. You'll deserve a break after your hard work). If your schedule ever changes, you can always edit the Weekly Schedule database in the User Data page.</p>
 
 		<p>The regular commute times are based on Google Maps API. Unfortunately, Google Maps doesn't know how much more slowly you need to drive your patient or what smooth alternate routes you need to take. Thus, the (specially marked slot)s include the patient-senstive commute time on the road if any time commitments require you to move the patient somewhere. That way you will not be confused or deceived by the extra time needed to travel.</p> 
+
+		</div>
+<!--This will be the form of the work schedule-->
+<div class = "row">
+	<div class = "col s12">
+		<form action = "./../server.js" >
+
+			<!--These won't be input spaces when app is finished. Make them checkmark options-->
+			<input name = "Monday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Tuesday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Wednesday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Thursday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Friday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Saturday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+			<input name = "Sunday" placeholder = "">
+				<input class = "time">
+				<input class = "appointment-name">
+				<input class = "description">
+
+				<!--This will be the entry which user will use to record patient care budget. Just an integer w/ 2 decimal places in US dollars.-->
+
+		<!--This is where user enters recovery exercise schedule for patient to practice-->
+		<form action = "./../server.js">
+			<input name = "exercise">
+			<input name = "timeRate">
+
+			<!--This would be a good chance to utilize the timer feature of Javascript-->
+			<input name = "timeLength">
+
+			<!--This will describe what the exercises are and how many repetition must be performed during each exercise period.-->
+			<input name = "description">
+
+		</form>

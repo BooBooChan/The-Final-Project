@@ -13,6 +13,10 @@ var LoginSchema = new Schema({
 		type:String,
 		default:""
 	},
+	username:{
+		type:String,
+		default:""
+	},
 	email:{
 		type:String,
 		default:""
@@ -28,6 +32,14 @@ var LoginSchema = new Schema({
 });
 var Login = mongoose.model("Login", LoginSchema);
 
+var demo = new Login ({
+	firstName: "Demo N.",
+	lastName: "Stration",
+	username:"DemoTheDemon"
+	email:"demo@demonstration.de",
+	password:"password",
+	passwordHint:"the easiest password to guess"
 
+});
 //Exporting login database to server.js
 module.exports = Login;
