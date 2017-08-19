@@ -5,6 +5,9 @@ var handlebar = require("express-handlebars");
 // var mongoose = require("mongoose");
 var app = express();
 var port = 7000;
+var mysql = require("mysql");
+const mysql = import mysql from "mysql";
+var SQLize = require("sequelize");
 
 // //Connecting to MongoDB
 // mongoose.connect("mongodb://localhost:7000/Login");
@@ -25,7 +28,21 @@ var port = 7000;
 // // 	var Demo = require("./models/Demo.js");
 // });
 
-	
+//Setting up Sequelize
+	const sequelize = new Sequelize("SecondFirstAid", "root", "root", {
+		host:"localhost",
+		dialect:"mysql",
+		pool: {
+			max: 5,
+			min: 0,
+			idle: 10000
+		}
+	});
+//Testing connection for sequelize
+	sequelize.authenticate().then(() => {
+		console.log()
+	})
+
 //Establishing handlebars layout
 app.engine("handlebars", handlebar({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
@@ -37,6 +54,7 @@ app.set("view engine", "handlebars");
 app.get("/", function(req, res){
 	// Rendering the home handlebar page onto the home url page
 	res.render("home");
+	//Hiding the signup form from site as default position.
 	// Login.find({}, function(error, welcome){
 	// 	if(error){
 	// 		res.send(error);
@@ -46,10 +64,47 @@ app.get("/", function(req, res){
 	// 		};
 	// 	}
 	// })
+
 });
 //Posting user-entered data from the home page onto the server.
 app.post("/", function(req, res){
 
+	
+	//Making queries to MySQL to add login data where necessary.
+	function signup(){
+		//Connecting to MySQL for database access
+
+		var connection = mysql.createConnection({
+		  host: "localhost",
+		  port: 3306,
+
+		  // Your username
+		  user: "root",
+
+		  // Your password
+		  password: "",
+		  database: "User"
+	});
+
+	connection.connect(function(err) {
+	  if (err) throw err;
+	  console.log("connected as id " + connection.threadId + "\n");
+	  insertCrud();
+});	
+	//Connecting mySQL queries to proper HTML elements
+
+		connection.query(
+			"INSERT INTO `Login` SET ? WHERE ?",
+			{
+				first_name:
+				last_name:
+				username:
+				email:
+				password:
+				password_hint:
+			},
+		);
+	};
 
 });
 //Retrieving and storing all login users' signup information
@@ -119,6 +174,8 @@ app.get("/:user", function(req, res){//If the "?" of optional parameters is ente
 // };
 
 // Remembering to make node.js Listen for http requests
+
+
 
 app.listen(7000, function() {
     console.log('App is listening on localhost', 7000);
