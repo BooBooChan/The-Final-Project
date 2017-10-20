@@ -1,11 +1,27 @@
 #Creating database for entire app.
 DROP DATABASE `SecondFirstAid` IF EXISTS;
 CREATE DATABASE `SecondFirstAid`;
-USE DATBASE `SecondFirstAid`;
+USE DATABASE `SecondFirstAid`;
 #Creating tables for database
 DROP TABLE `Contacts` IF EXISTS;
 CREATE DATABASE `Contacts`(
-	id INT NOT NULL AUTO_INCREMENT
+	`id` INT NOT NULL AUTO_INCREMENT, 
+	`name` VARCHAR(20) NULL,
+	`address_1` VARCHAR(50) NULL, #LocationSubject to change. Do we want address or just general location?
+	`address_2` VARCHAR(10) NULL,
+	`city` VARCHAR(20) NULL,
+	`state` VARCHAR(20) NULL,
+	#country is assumed to be same as country in user's address
+	`zip` VARCHAR(20) NULL,
+	`country_code` INT NULL,#Phone number
+	`area_code` INT NULL,
+	`main_number` INT NULL,
+	`username` VARCHAR(20) NULL,
+	`email_host` VARCHAR(20) NULL,
+	`domain` VARCHAR(4) NULL,
+	`country_code` INT NULL,#Fax number
+	`area_code` INT NULL,
+	`main_number` INT NULL,
 
 );
 INSERT INTO `Contacts`()

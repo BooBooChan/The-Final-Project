@@ -6,14 +6,28 @@
 	</p>
 
 	<!--This is where the login info will be entered.-->
+	
 	<form id = "login" action = "../phpPages/home.php" method = "POST">
 		<input name = "username" placeholder = "username">
 		<input name = "password" placeholder = "password">
-		<button id = "login-submit" type = "submit" >Log in</button>
+		<button id = "login-submit" type = "submit">Log in</button>
 
 		<button id = "reveal-signup">Don't have an account? Click here and sign in.</button>
+		<!--The reveal command is dictated by the front-end JS.-->
 		
 	</form>
+
+	<?php 
+	//The "method" specified in the form already posted the login data to the server. Now we respond accordingly.
+	if(
+		$_POST["username"] === /*MySQL username here*/ && $_POST["password"] === /*MySQL username here*/){
+		header("Location: localhost:7000/weeklySchedule");
+		exit();
+	}else{
+		echo "Invalid username and password. Please try again."
+	};
+	?>
+
 	<form id = "signup" action = "../phpPages/home.php" method = "POST">
 		<input name = "firstName" placeholder = "First Name">
 		<input name = "lastName" placeholder = "Last Name">
@@ -21,7 +35,13 @@
 		<input name = "createPassword" placeholder = "Password">
 		<button id = "signup-submit" type = "submit">Sign up</button>
 
+
 		<!--You don't need to create a "confirm password" entry for this demo.-->
 
 	</form>
+
+	<?php
+		//Insert mySQL data here to compile posted signup data into database.
+		echo "<h3>Welcome," . $_POST["firstName"] . $_POST["lastName"] . "You may now log into our app with your username and password on the login sheet above.</h3>"
+	?>
 </div>
