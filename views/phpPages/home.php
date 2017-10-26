@@ -5,17 +5,6 @@
 	<p>No need to panic. This app is designed to make your money and time budget easier for you. Your daily schedule and spendings can change drastically when misfortune strikes unexpectedly and your friend and/or relative is too sick to take care of himself.
 	</p>
 
-	<!--This is where the login info will be entered.-->
-	
-	<form id = "login" action = "../phpPages/home.php" method = "POST">
-		<input name = "username" placeholder = "username">
-		<input name = "password" placeholder = "password">
-		<button id = "login-submit" type = "submit">Log in</button>
-
-		<button id = "reveal-signup">Don't have an account? Click here and sign in.</button>
-		<!--The reveal command is dictated by the front-end JS.-->
-		
-	</form>
 
 	<?php 
 	//The "method" specified in the form already posted the login data to the server. Now we respond accordingly.

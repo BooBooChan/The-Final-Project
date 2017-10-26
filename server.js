@@ -6,8 +6,8 @@ var handlebar = require("express-handlebars");
 var app = express();
 var port = 7000;
 var mysql = require("mysql");
-const mysql = import mysql from "mysql";
-var SQLize = require("sequelize");
+// const mysql = import mysql from "mysql";
+// var SQLize = require("sequelize");
 
 // //Connecting to MongoDB
 // mongoose.connect("mongodb://localhost:7000/Login");
@@ -28,20 +28,20 @@ var SQLize = require("sequelize");
 // // 	var Demo = require("./models/Demo.js");
 // });
 
-//Setting up Sequelize
-	const sequelize = new Sequelize("SecondFirstAid", "root", "root", {
-		host:"localhost",
-		dialect:"mysql",
-		pool: {
-			max: 5,
-			min: 0,
-			idle: 10000
-		}
-	});
-//Testing connection for sequelize
-	sequelize.authenticate().then(() => {
-		console.log()
-	})
+// //Setting up Sequelize
+// 	const sequelize = new Sequelize("SecondFirstAid", "root", "root", {
+// 		host:"localhost",
+// 		dialect:"mysql",
+// 		pool: {
+// 			max: 5,
+// 			min: 0,
+// 			idle: 10000
+// 		}
+// 	});
+// //Testing connection for sequelize
+// 	sequelize.authenticate().then(() => {
+// 		console.log()
+// 	})
 
 //Establishing handlebars layout
 app.engine("handlebars", handlebar({defaultLayout: "main"}));
@@ -84,29 +84,28 @@ app.post("/", function(req, res){
 		  // Your password
 		  password: "",
 		  database: "User"
-	});
+		});//End connection variable definition
 
-	connection.connect(function(err) {
-	  if (err) throw err;
-	  console.log("connected as id " + connection.threadId + "\n");
-	  insertCrud();
-});	
-	//Connecting mySQL queries to proper HTML elements
+		connection.connect(function(err) { //Keep queries inside this object.
+			if (err) throw err;
+			console.log("connected as id " + connection.threadId + "\n");
+			insertCrud();//Function TBD
+			//Connecting mySQL queries to proper HTML elements
+			var loginDrop = "DROP TABLE `login` IF EXISTS"
+			var loginInsert = "INSERT INTO `Login` (first_name, last_name, username, email, password, password_hint) VALUES ?"; //"SET ?" meaning... "WHERE ?" meaning...
+			var loginValues = [
+			//This is where users' input in login form will be entered. Find proper MySQL functions
+			//It'd be nice if I could summon data from the demonstration example. But how? Hmmmm...
+			];
+			connection.query(
+				loginDrop, loginInsert, [loginValues], function(err, result){
+					if (err) throw err;
+					console.log("Number of rows affected in `Login`: ", result.affectedRows);
+				});//End connection.query
+		});//End connection.connect		
+	};//End function signup
+});//End app.post("/")
 
-		connection.query(
-			"INSERT INTO `Login` SET ? WHERE ?",
-			{
-				first_name:
-				last_name:
-				username:
-				email:
-				password:
-				password_hint:
-			},
-		);
-	};
-
-});
 //Retrieving and storing all login users' signup information
 app.get("/:user", function(req, res){//If the "?" of optional parameters is entered, then the server would get confused which app.get() command to run when two are "get"ting server data from possibly the same url "/".
 	//Sending data from server as per user's request in url to browser.
