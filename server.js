@@ -111,6 +111,16 @@ app.get("/:user", function(req, res){//If the "?" of optional parameters is ente
 	//Sending data from server as per user's request in url to browser.
 	res.send("/" + req.params.user);
 });
+
+//Retrieving data from the server on the weekly schedule page
+app.get("/weeklySchedule", function(req, res){
+	//Rendering the Weekly Schedule handlebar page onto the Weekly Schedule url
+	res.render("weeklySchedule");
+});
+//Posting user-entered login info to the server
+app.post("/phpPages/home.php", function(req, res){
+
+});
 // //Retrieving data from the server on the user input page
 // app.get("/userData", function (req, res){
 // 	//Rendering the userData handlebar page onto the userDATA url page
