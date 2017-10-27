@@ -12,6 +12,34 @@
 	// function signup(){
 	// 	//Connecting to MySQL for database access
 
+	$servername = "localhost";
+	$port = 3306;
+	$username = "root";
+	$password = "";
+	$database = "User";
+
+	$connection = new mysqli($servername, $port, $username, $password, $database);
+	if(!$conn){
+		die("Connection failed" . mysqli_connect_error());
+	};
+	echo "MySQLi is now connected! Wahay!"
+
+	$login_entry = "SELECT username, password FROM Login";//This is not the MySQL query, just instructions prepared for an upcoming query.
+	$login_query = $connection -> query($login_entry);//THIS is the query dictated by the above instructions.
+
+	//"For" looping through Login table to match with user-entered login data
+	foreach($row = $login_query -> fetch_assoc()) {//Okay, so what I think will happen based on my research is that the query will display each array as key/value entries.
+		if($row["username"] === $_POST["username"] && $row["password"] === $_POST["password"]){
+			header("Location: localhost:7000/weeklySchedule");
+			exit();
+		};//end "if" statement
+		else{
+			echo("Invalid username and/or password. Please try again.")
+		};//end "else" statement
+	};//end foreach statement
+
+
+
 	// 	var connection = mysql.createConnection({
 	// 	  host: "localhost",
 	// 	  port: 3306,
@@ -42,13 +70,13 @@
 	// 			});//End connection.query
 	// 	});//End connection.connect		
 	// };//End function signup
-	if(
-		$_POST["username"] === /*MySQL username here*/ && $_POST["password"] === /*MySQL username here*/){
-		header("Location: localhost:7000/weeklySchedule");
-		exit();
-	}else{
-		echo "Invalid username and password. Please try again."
-	};
+	// if(
+	// 	$_POST["username"] === /*MySQL username here*/ && $_POST["password"] === /*MySQL username here*/){
+	// 	header("Location: localhost:7000/weeklySchedule");
+	// 	exit();
+	// }else{
+	// 	echo "Invalid username and password. Please try again."
+	// };
 	?>
 
 	<form id = "signup" action = "../phpPages/home.php" method = "POST">
