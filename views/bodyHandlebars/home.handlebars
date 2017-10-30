@@ -6,22 +6,24 @@
 	</p>
 
 	<!--This is where the login info will be entered.-->
-	<form id = "login">
+	<form id = "login" action = "../phpPages/home.php">
 		<input name = "username" placeholder = "username">
 		<input name = "password" placeholder = "password">
-		<submit action = "./../server.js">Log in</submit>
-
-		<button id = "reveal-signup">Don't have an account? Click here and sign in.</button>
-		
+		<input type = "submit"></input>	
 	</form>
-	<form id = "signup">
+
+<!--
+	<button id = "reveal-signup">Don't have an account? Click here and sign in.</button>
+	
+	<form id = "signup" action = "../phpPages/home.php">
 		<input name = "firstName" placholder = "First Name">
 		<input name = "lastName" placholder = "Last Name">
 		<input name = "email" placholder = "Email">
 		<input name = "createPassword" placholder = "Password">
-		<submit action = "./../server.js">Sign up</submit>
+		<input type = "submit">Sign up</input>
 
 		<!--You don't need to create a "confirm password" entry for this demo.-->
 
 	</form>
+-->
 </div>

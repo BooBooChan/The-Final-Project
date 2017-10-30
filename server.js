@@ -91,7 +91,7 @@ app.post("/", function(req, res){
 			console.log("connected as id " + connection.threadId + "\n");
 			insertCrud();//Function TBD
 			//Connecting mySQL queries to proper HTML elements
-			var loginDrop = "DROP TABLE `login` IF EXISTS"
+			var loginDrop = "DROP TABLE `Login` IF EXISTS"
 			var loginInsert = "INSERT INTO `Login` (first_name, last_name, username, email, password, password_hint) VALUES ?"; //"SET ?" meaning... "WHERE ?" meaning...
 			var loginValues = [
 			//This is where users' input in login form will be entered. Find proper MySQL functions

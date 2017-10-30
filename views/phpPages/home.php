@@ -28,7 +28,7 @@
 	$login_query = $connection -> query($login_entry);//THIS is the query dictated by the above instructions.
 
 	//"For" looping through Login table to match with user-entered login data
-	foreach($row = $login_query -> fetch_assoc()) {//Okay, so what I think will happen based on my research is that the query will display each array as key/value entries.
+	while($row = $login_query -> fetch_assoc()) {//Okay, so what I think will happen based on my research is that the query will display each array as key/value entries.
 		if($row["username"] === $_POST["username"] && $row["password"] === $_POST["password"]){
 			header("Location: localhost:7000/weeklySchedule");
 			exit();
@@ -36,7 +36,7 @@
 		else{
 			echo("Invalid username and/or password. Please try again.")
 		};//end "else" statement
-	};//end foreach statement
+	};//end "while" statement
 
 
 
