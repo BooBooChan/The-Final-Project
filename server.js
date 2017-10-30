@@ -119,7 +119,7 @@ app.get("/weeklySchedule", function(req, res){
 });
 //Posting user-entered login info to the server
 app.post("/phpPages/home.php", function(req, res){
-
+//So it seems like the website needs post commands both on this page and on the home handlebars page in order for home.php to send data to the server and take login data.
 });
 // //Retrieving data from the server on the user input page
 // app.get("/userData", function (req, res){
